@@ -1,0 +1,6 @@
+framework module MWTableViewCellSeparatorLineSwift {
+  umbrella header "MWTableViewCellSeparatorLineSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

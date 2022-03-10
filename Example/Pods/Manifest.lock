@@ -1,0 +1,16 @@
+PODS:
+  - MWTableViewCellSeparatorLineSwift (0.1.0)
+
+DEPENDENCIES:
+  - MWTableViewCellSeparatorLineSwift (from `../`)
+
+EXTERNAL SOURCES:
+  MWTableViewCellSeparatorLineSwift:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MWTableViewCellSeparatorLineSwift: 753411877cc13d44b96a6442a812e5d7b50843f7
+
+PODFILE CHECKSUM: 19cebd05d2f22dce2707a1179e3d0f7d285b5a13
+
+COCOAPODS: 1.11.2

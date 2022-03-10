@@ -41,12 +41,12 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		86094C487D5D9773EDB11F30 /* Pods-MWTableViewCellSeparatorLineSwift_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWTableViewCellSeparatorLineSwift_Example.debug.xcconfig"; path = "Target Support Files/Pods-MWTableViewCellSeparatorLineSwift_Example/Pods-MWTableViewCellSeparatorLineSwift_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		9079F0625F1423EF196237E4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		9079F0625F1423EF196237E4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		97ADEB83EAD00C7078461BB0 /* Pods_MWTableViewCellSeparatorLineSwift_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MWTableViewCellSeparatorLineSwift_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A18F71B1D9EC1AA4F199849A /* Pods_MWTableViewCellSeparatorLineSwift_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MWTableViewCellSeparatorLineSwift_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B598705C1CE23B47CDB861BF /* MWTableViewCellSeparatorLineSwift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = MWTableViewCellSeparatorLineSwift.podspec; path = ../MWTableViewCellSeparatorLineSwift.podspec; sourceTree = "<group>"; };
+		B598705C1CE23B47CDB861BF /* MWTableViewCellSeparatorLineSwift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MWTableViewCellSeparatorLineSwift.podspec; path = ../MWTableViewCellSeparatorLineSwift.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B6AB58F26CF47D9416D7F601 /* Pods-MWTableViewCellSeparatorLineSwift_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWTableViewCellSeparatorLineSwift_Tests.release.xcconfig"; path = "Target Support Files/Pods-MWTableViewCellSeparatorLineSwift_Tests/Pods-MWTableViewCellSeparatorLineSwift_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		D0CA58B7CFECCDF5B997429E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		D0CA58B7CFECCDF5B997429E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +156,6 @@
 				11AD0FB40B8AD3EF50355F17 /* Pods-MWTableViewCellSeparatorLineSwift_Tests.debug.xcconfig */,
 				B6AB58F26CF47D9416D7F601 /* Pods-MWTableViewCellSeparatorLineSwift_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -227,6 +226,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
