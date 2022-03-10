@@ -1,0 +1,2 @@
+# MWTableViewCellSeparatorLineSwift
+MWTableViewCellSeparatorLine for Swift
