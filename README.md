@@ -1,4 +1,4 @@
-# MWTableViewCellSeparatorLineSwift
+# MWTableViewCellSeparatorLineSwift for Swift
 
 [![CI Status](https://img.shields.io/travis/LiY/MWTableViewCellSeparatorLineSwift.svg?style=flat)](https://travis-ci.org/LiY/MWTableViewCellSeparatorLineSwift)
 [![Version](https://img.shields.io/cocoapods/v/MWTableViewCellSeparatorLineSwift.svg?style=flat)](https://cocoapods.org/pods/MWTableViewCellSeparatorLineSwift)
