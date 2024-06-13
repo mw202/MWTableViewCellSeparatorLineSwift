@@ -5,11 +5,19 @@
 [![License](https://img.shields.io/cocoapods/l/MWTableViewCellSeparatorLineSwift.svg?style=flat)](https://cocoapods.org/pods/MWTableViewCellSeparatorLineSwift)
 [![Platform](https://img.shields.io/cocoapods/p/MWTableViewCellSeparatorLineSwift.svg?style=flat)](https://cocoapods.org/pods/MWTableViewCellSeparatorLineSwift)
 
-## Example
+## 说明
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+swift版本的UITableViewCell分割线
 
-## Requirements
+<img src="/docs/screenshot1.png" width="50%" height="50%">
+
+## 使用
+
+* 使用dataSource设置选中状态。如果返回nil，不会显示选中状态
+
+```swift
+
+```
 
 ## Installation
 
