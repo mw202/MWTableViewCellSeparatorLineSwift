@@ -9,7 +9,7 @@
 
 swift版本的UITableViewCell分割线
 
-<img src="/screenshots/screenshot1.png" width="50%" height="50%">
+<img src="/screenshots/screenshot1.png" width="40%" height="40%">
 
 ## 使用
 
