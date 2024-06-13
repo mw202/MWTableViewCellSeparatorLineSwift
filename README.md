@@ -9,14 +9,25 @@
 
 swift版本的UITableViewCell分割线
 
-<img src="/docs/screenshot1.png" width="50%" height="50%">
+<img src="/screenshots/screenshot1.png" width="50%" height="50%">
 
 ## 使用
 
-* 使用dataSource设置选中状态。如果返回nil，不会显示选中状态
-
 ```swift
 
+override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    // ...
+    cell.setSeparatorLineStyle([.display(.show(l: 0, r: 20)), .color(UIColor.red), .height(0.5)])
+    
+    // 或者颜色使用字符串形式
+    // .color("#3125FF")
+}
+
+```
+## 注意
+* 如果`UITableView`设置了`Style` 为 `grouped`，仍然会有上下2条线，需要设置
+```swift
+tableView.separatorStyle = .none
 ```
 
 ## Installation
