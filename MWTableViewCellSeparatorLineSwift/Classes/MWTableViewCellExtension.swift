@@ -7,14 +7,18 @@
 
 import Foundation
 
-extension UITableViewCell {
+public protocol Color { var colorValue: UIColor? { get } }
+
+// MARK: -
+
+public extension UITableViewCell {
     
     /// 分隔线样式
-    public enum SeparatorLineStyle {
+    enum SeparatorLineStyle {
         /// 显示
         case display(SeparatorLineDisplayStyle)
         /// 颜色
-        case color(UIColor)
+        case color(Color)
         /// 高度
         case height(CGFloat)
         
@@ -27,7 +31,8 @@ extension UITableViewCell {
                 default: break
                 }
                 return false
-            case let (.color(c1), .color(c2)): return c1 == c2
+            case let (.color(c1), .color(c2)):
+                return c1.colorValue == c2.colorValue
             case let (.height(h1), .height(h2)): return h1 == h2
             default: break
             }
@@ -37,14 +42,14 @@ extension UITableViewCell {
     }
     
     /// 分隔线显示样式
-    public enum SeparatorLineDisplayStyle {
+    enum SeparatorLineDisplayStyle {
         case hidden
         case show(l: CGFloat, r: CGFloat)
     }
     
     /// 设置分隔线样式
     /// - Parameter items: [SeparatorLineStyle]
-    public func setSeparatorLineStyle(_ items: [SeparatorLineStyle]) {
+    func setSeparatorLineStyle(_ items: [SeparatorLineStyle]) {
         
         let idViewAndContentViewLeft = "cell.view.contentview.left"
         let idViewAndContentViewRight = "cell.view.contentview.right"
@@ -61,7 +66,7 @@ extension UITableViewCell {
             self.addSubview(separatorView!)
             self.bringSubview(toFront: separatorView!)
         }
-            
+        
         separatorView!.translatesAutoresizingMaskIntoConstraints = false
         
         // 1.先移除
@@ -108,25 +113,27 @@ extension UITableViewCell {
                     switch display {
                     case .hidden: break
                     case .show(let left, let right):
-                        let viewLeft = NSLayoutConstraint(item: self, attribute: .left, relatedBy: .equal, toItem: separatorView!, attribute: .left, multiplier: 1, constant: -left)
-                        viewLeft.identifier = idViewAndContentViewLeft
-                        self.updateConstraint(id: idViewAndContentViewLeft, constraint: viewLeft)
+                        let layoutConstraintLeft = NSLayoutConstraint(item: self, attribute: .left, relatedBy: .equal, toItem: separatorView!, attribute: .left, multiplier: 1, constant: -left)
+                        layoutConstraintLeft.identifier = idViewAndContentViewLeft
+                        self.updateConstraint(id: idViewAndContentViewLeft, constraint: layoutConstraintLeft)
                         
-                        let viewRight = NSLayoutConstraint(item: self, attribute: .right, relatedBy: .equal, toItem: separatorView!, attribute: .right, multiplier: 1, constant: right)
-                        viewRight.identifier = idViewAndContentViewRight
-                        self.updateConstraint(id: idViewAndContentViewRight, constraint: viewRight)
+                        let layoutConstraintRight = NSLayoutConstraint(item: self, attribute: .right, relatedBy: .equal, toItem: separatorView!, attribute: .right, multiplier: 1, constant: right)
+                        layoutConstraintRight.identifier = idViewAndContentViewRight
+                        self.updateConstraint(id: idViewAndContentViewRight, constraint: layoutConstraintRight)
                     }
                 case .color(let color):
-                    separatorView!.backgroundColor = color
+                    separatorView!.backgroundColor = color.colorValue
                 case .height(let height):
-                    let viewHeight = NSLayoutConstraint(item: separatorView!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: height)
-                    viewHeight.identifier = idViewHeight
-                    separatorView!.updateConstraint(id: idViewHeight, constraint: viewHeight)
+                    let layoutConstraintHeight = NSLayoutConstraint(item: separatorView!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: height)
+                    layoutConstraintHeight.identifier = idViewHeight
+                    separatorView!.updateConstraint(id: idViewHeight, constraint: layoutConstraintHeight)
                 }
             }
         }
     }
 }
+
+// MARK: -
 
 extension UIView {
     
@@ -165,5 +172,40 @@ extension UIView {
         for id in ids {
             removeConstraint(id: id)
         }
+    }
+}
+
+extension String: Color {
+    public var colorValue: UIColor? {
+        UIColor.mw_hex(self)
+    }
+}
+
+extension UIColor: Color {
+    public var colorValue: UIColor? {
+        self
+    }
+}
+
+extension UIColor {
+    public static func mw_hex(_ hexStr: String) -> UIColor? {
+        var str = hexStr
+        if str.contains("#") {
+            str = String(str.dropFirst())
+        }
+        
+        if str.count != 6 {
+            return nil
+        }
+        
+        var red: UInt32 = 0, green: UInt32 = 0, blue: UInt32 = 0
+        
+        let redStr = str[String.Index(encodedOffset: 0)..<String.Index(encodedOffset: 2)]
+        let greenStr = str[String.Index(encodedOffset: 2)..<String.Index(encodedOffset: 4)]
+        let blueStr = str[String.Index(encodedOffset: 4)..<String.Index(encodedOffset: 6)]
+        Scanner(string: String(redStr)).scanHexInt32(&red)
+        Scanner(string: String(greenStr)).scanHexInt32(&green)
+        Scanner(string: String(blueStr)).scanHexInt32(&blue)
+        return UIColor(red: CGFloat(red)/255.0, green: CGFloat(green)/255.0, blue: CGFloat(blue)/255.0, alpha: 1.0)
     }
 }
