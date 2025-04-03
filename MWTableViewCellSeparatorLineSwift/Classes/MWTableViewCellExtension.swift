@@ -57,7 +57,7 @@ public extension UITableViewCell {
         let idViewHeight = "cell.view.height"
         let separatorViewTag = 2046
         
-        separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: CGFloat.greatestFiniteMagnitude)
+        separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
         
         var separatorView = self.viewWithTag(separatorViewTag)
         if separatorView == nil {
